@@ -4,11 +4,8 @@ using UnityEngine;
 namespace Auto.Patches;
 
 [HarmonyPatch(typeof(ChatController), nameof(ChatController.Update))]
-class ChatControllerPatch
+class ChatControllerUpdatePatch
 {
-    public static List<string> ChatHistory = [];
-    public static int CurrentHistorySelection = -1;
-
     [HarmonyPrefix]
     public static void Prefix(ChatController __instance)
     {
@@ -42,17 +39,17 @@ class ChatControllerPatch
             __instance.freeChatField.textArea.SetText("");
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && ChatHistory.Any())
+        if (Input.GetKeyDown(KeyCode.UpArrow) && ChatCommandPatch.ChatHistory.Any())
         {
-            CurrentHistorySelection = Mathf.Clamp(--CurrentHistorySelection, 0, ChatHistory.Count - 1);
-            __instance.freeChatField.textArea.SetText(ChatHistory[CurrentHistorySelection]);
+            ChatCommandPatch.CurrentHistorySelection = Mathf.Clamp(--ChatCommandPatch.CurrentHistorySelection, 0, ChatCommandPatch.ChatHistory.Count - 1);
+            __instance.freeChatField.textArea.SetText(ChatCommandPatch.ChatHistory[ChatCommandPatch.CurrentHistorySelection]);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && ChatHistory.Any())
+        if (Input.GetKeyDown(KeyCode.DownArrow) && ChatCommandPatch.ChatHistory.Any())
         {
-            CurrentHistorySelection++;
-            if (CurrentHistorySelection < ChatHistory.Count)
-                __instance.freeChatField.textArea.SetText(ChatHistory[CurrentHistorySelection]);
+            ChatCommandPatch.CurrentHistorySelection++;
+            if (ChatCommandPatch.CurrentHistorySelection < ChatCommandPatch.ChatHistory.Count)
+                __instance.freeChatField.textArea.SetText(ChatCommandPatch.ChatHistory[ChatCommandPatch.CurrentHistorySelection]);
             else __instance.freeChatField.textArea.SetText("");
         }
     }
