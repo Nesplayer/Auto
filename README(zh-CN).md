@@ -23,7 +23,7 @@
 ---  
 感谢以下的贡献者以及模组  
 
-### :star: [Zixum256](https://github.com/Zixun256) :
+### :star: [Zixun256](https://github.com/Zixun256) :
 > 
 > - 为Auto增加了黑暗模式
 >
