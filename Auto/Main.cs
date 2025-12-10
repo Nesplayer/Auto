@@ -1,22 +1,34 @@
-﻿using BepInEx;
+﻿using System.Reflection;
+using Auto;
+using BepInEx;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 
+[assembly: AssemblyFileVersion(Main.PluginVersion)]
+[assembly: AssemblyInformationalVersion(Main.PluginVersion)]
+[assembly: AssemblyVersion(Main.PluginVersion)]
+
 namespace Auto
 {
-    [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
-    public class Plugin : BasePlugin
+    [BepInPlugin(PluginGuid, "Auto-Reworked", PluginVersion)]
+    [BepInProcess("Among Us.exe")]
+    public class Main : BasePlugin
     {
-        public static Main Instance{ get; private set; }
-        
+        // 模组基本设定
+        public const string ModName = "Auto-Reworked"; // 模组名字
+        public const string ForkId = "Auto-Reworked"; // 模组 fork id
+        public const string PluginVersion = "1.0.0"; // 版本号
+        public const string PluginGuid = "cn.nes.Auto-Reworked"; // 模组 GUID
+
+        // 版本相关设定
+        public const string LowestSupportedVersion = "2025.11.18"; // 17.1.0
+
         public override void Load()
         {
             Logger("Auto is loading..", "Auto");
-            Harmony harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
-            harmony.PatchAll();
         }
 
-        public static void Logger(String msg, String source, LogLevel level = LogLevel.Info)
+        public static void Logger(string msg, string source, LogLevel level = LogLevel.Info)
         {
             ManualLogSource log = BepInEx.Logging.Logger.CreateLogSource(source);
             switch(level)

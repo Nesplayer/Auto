@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auto-Reworked", "Auto\Auto.csproj", "{BB32D6D5-7915-496C-933A-A2632C78918F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+    Debug|AnyCpu = Debug|AnyCpu
+		Canary|AnyCpu = Canary|AnyCpu
+		Release|AnyCpu = Release|AnyCpu
+
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB32D6D5-7915-496C-933A-A2632C78918F}.Canary|AnyCpu.ActiveCfg = Canary|AnyCpu
+		{BB32D6D5-7915-496C-933A-A2632C78918F}.Canary|AnyCpu.Build.0 = Canary|AnyCpu
+		{BB32D6D5-7915-496C-933A-A2632C78918F}.Release|AnyCpu.ActiveCfg = Release|AnyCpu
+		{BB32D6D5-7915-496C-933A-A2632C78918F}.Release|AnyCpu.Build.0 = Release|AnyCpu
+		{BB32D6D5-7915-496C-933A-A2632C78918F}.Debug|AnyCpu.ActiveCfg = Debug|AnyCpu
+		{BB32D6D5-7915-496C-933A-A2632C78918F}.Debug|AnyCpu.Build.0 = Debug|AnyCpu
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E968AE10-42DB-42A3-AF64-6753110729A2}
+	EndGlobalSection
+EndGlobal
